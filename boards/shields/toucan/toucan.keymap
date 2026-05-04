@@ -13,16 +13,18 @@
         m_copy: m_copy {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>,
-                       <&macro_tap &kp C>,
-                       <&macro_release &kp LCTRL>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_tap &kp C>
+                , <&macro_release &kp LCTRL>;
         };
         m_paste: m_paste {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LCTRL>,
-                       <&macro_tap &kp V>,
-                       <&macro_release &kp LCTRL>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_tap &kp V>
+                , <&macro_release &kp LCTRL>;
         };
     };
 
@@ -60,10 +62,10 @@
         sym_layer {
             display-name = "sym";
             bindings = 
-                &kp TAB    &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp QMARK
-                &kp LCTRL  &kp PSCRN &m_copy &m_paste  &trans    &trans        &kp MINUS  &kp EQUAL  &kp UP     &kp LBKT  &kp RBKT  &kp BSLH
-                &kp LSHFT  &trans    &trans  &trans    &trans    &trans        &kp UNDER  &kp LEFT   &kp DOWN   &kp RIGHT &kp LBRC  &kp RBRC
-                                     &kp LGUI  &trans  &kp SPACE    &kp RET  &trans  &kp RALT
+                &kp TAB    &kp EXCL   &kp AT   &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR   &kp RPAR  &kp QMARK
+                &kp LCTRL  &kp PSCRN  &m_copy  &m_paste  &trans    &trans        &kp MINUS  &kp EQUAL  &kp UP     &kp LBKT   &kp RBKT  &kp BSLH
+                &kp LSHFT  &trans     &trans   &trans    &trans    &trans        &kp UNDER  &kp LEFT   &kp DOWN   &kp RIGHT  &kp LBRC  &kp RBRC
+                                      &kp LGUI  &trans  &kp SPACE    &kp RET  &trans  &kp RALT
             >;
         };
 
