@@ -1,36 +1,12 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/outputs.h>
-
-#define BASE 0
-#define NAV  1
-#define SYM  2
-#define ADJ  3
+#include <dt-bindings/zmk/mouse.h>
 
 / {
-    macros {
-        m_copy: m_copy {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_press &kp LCTRL>
-                , <&macro_tap &kp C>
-                , <&macro_release &kp LCTRL>;
-        };
-        m_paste: m_paste {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_press &kp LCTRL>
-                , <&macro_tap &kp V>
-                , <&macro_release &kp LCTRL>;
-        };
-    };
-
     conditional_layers {
         compatible = "zmk,conditional-layers";
-        tri_layer {
+        adj_layer {
             if-layers = <1 2>;
             then-layer = <3>;
         };
@@ -39,45 +15,44 @@
     keymap {
         compatible = "zmk,keymap";
 
-        base_layer {
-            display-name = "base";
-            bindings = 
-                &kp TAB    &kp Q  &kp W  &kp E  &kp R  &kp T      &kp Y  &kp U  &kp I      &kp O    &kp P     &kp BSPC
-                &kp LCTRL  &kp A  &kp S  &kp D  &kp F  &kp G      &kp H  &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
-                &kp LSHFT  &kp Z  &kp X  &kp C  &kp V  &kp B      &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
-                                  &kp LGUI  &mo NAV  &kp SPACE    &kp RET  &mo SYM  &kp RALT
+        default_layer {
+            display-name = "BASE";
+            bindings = <
+                &kp TAB               &kp Q                 &kp W                 &kp E                 &kp R                 &kp T                 &kp Y                 &kp U                 &kp I                 &kp O                 &kp P                 &kp BSPC              
+                &kp LCTRL             &kp A                 &kp S                 &kp D                 &kp F                 &kp G                 &kp H                 &kp J                 &kp K                 &kp L                 &kp SEMI              &kp SQT               
+                &kp LSHFT             &kp Z                 &kp X                 &kp C                 &kp V                 &kp B                 &kp N                 &kp M                 &kp COMMA             &kp DOT               &kp FSLH              &kp RSHFT             
+                                            &kp LANG2             &mo 1                 &kp SPACE             &kp RET               &mo 2                 &kp LANG1             
             >;
         };
 
         nav_layer {
-            display-name = "nav";
-            bindings = 
-                &kp TAB    &kp N1        &kp N2        &kp N3        &kp N4        &kp N5         &kp N7  &kp N8  &kp N9  &kp PLUS   &kp MINUS  &kp BSPC
-                &bt BT_CLR &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4   &kp N4  &kp N5  &kp N6  &kp ASTRK  &kp FSLH   &kp DOT
-                &kp LSHFT  &studio_unlock &trans        &trans        &trans        &trans         &kp N1  &kp N2  &kp N3  &kp N0     &kp EQUAL  &kp RET
-                                          &kp LGUI  &trans  &kp SPACE    &kp RET  &trans  &kp RALT
+            display-name = "NAV";
+            bindings = <
+                &kp TAB               &kp N1                &kp N2                &kp N3                &kp N4                &kp N5                &kp KP_N7             &kp KP_N8             &kp KP_N9             &kp LS(EQUAL)         &kp MINUS             &kp BSPC              
+                &bt BT_CLR            &bt BT_SEL 0          &bt BT_SEL 1          &bt BT_SEL 2          &bt BT_SEL 3          &bt BT_SEL 4          &kp KP_N4             &kp KP_N5             &kp KP_N6             &kp LS(N8)            &kp FSLH              &kp DOT               
+                &kp LSHFT             &studio_unlock        &trans                &trans                &mkp MB1              &mkp MB2              &kp KP_N1             &kp KP_N2             &kp KP_N3             &kp KP_N0             &kp EQUAL             &kp RET               
+                                            &kp LGUI              &trans                &kp SPACE             &kp RET               &trans                &kp RALT              
             >;
         };
 
         sym_layer {
-            display-name = "sym";
-            bindings = 
-                &kp TAB    &kp EXCL   &kp AT   &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR   &kp RPAR  &kp QMARK
-                &kp LCTRL  &kp PSCRN  &m_copy  &m_paste  &trans    &trans        &kp MINUS  &kp EQUAL  &kp UP     &kp LBKT   &kp RBKT  &kp BSLH
-                &kp LSHFT  &trans     &trans   &trans    &trans    &trans        &kp UNDER  &kp LEFT   &kp DOWN   &kp RIGHT  &kp LBRC  &kp RBRC
-                                      &kp LGUI  &trans  &kp SPACE    &kp RET  &trans  &kp RALT
+            display-name = "SYM";
+            bindings = <
+                &kp TAB               &kp LS(N1)            &kp LS(N2)            &kp LS(N3)            &kp LS(N4)            &kp LS(N5)            &kp LS(N6)            &kp LS(N7)            &kp LS(N8)            &kp LS(N9)            &kp LS(N0)            &kp LS(FSLH)          
+                &kp LCTRL             &kp PSCRN             &kp LC(C)             &kp LC(V)             &trans                &trans                &kp MINUS             &kp EQUAL             &kp UP                &kp LBKT              &kp RBKT              &kp BSLH              
+                &kp LSHFT             &kp N0                &kp N1                &trans                &trans                &trans                &kp LS(MINUS)         &kp LEFT              &kp DOWN              &kp RIGHT             &kp LS(LBKT)          &kp LS(RBKT)          
+                                            &kp LGUI              &trans                &kp SPACE             &kp RET               &trans                &kp RALT              
             >;
         };
 
         adj_layer {
-            display-name = "adj";
-            bindings = 
-                &kp TAB    &trans  &kp F7  &kp F8  &kp F9  &kp F12    &kp C_VOL_DN  &kp C_MUTE  &kp C_VOL_UP  &trans  &trans  &kp BSPC
-                &kp LCTRL  &trans  &kp F4  &kp F5  &kp F6  &kp F11    &trans        &trans       &trans        &trans  &trans  &trans
-                &kp LSHFT  &trans  &kp F1  &kp F2  &kp F3  &kp F10    &trans        &trans       &trans        &trans  &trans  &trans
-                                   &kp LGUI  &mo NAV  &kp SPACE    &kp RET  &mo SYM  &kp RALT
+            display-name = "ADJ";
+            bindings = <
+                &kp TAB               &trans                &kp F7                &kp F8                &kp F9                &kp F12               &kp C_VOL_DN          &kp C_MUTE            &kp C_VOL_UP          &trans                &trans                &kp BSPC              
+                &kp LCTRL             &trans                &kp F4                &kp F5                &kp F6                &kp F11               &trans                &trans                &trans                &trans                &trans                &trans                
+                &kp LSHFT             &trans                &kp F1                &kp F2                &kp F3                &kp F10               &trans                &trans                &trans                &trans                &trans                &trans                
+                                            &kp LGUI              &mo 1                 &kp SPACE             &kp RET               &mo 2                 &kp RALT              
             >;
         };
-
     };
 };
