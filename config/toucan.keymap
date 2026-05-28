@@ -4,6 +4,15 @@
 #include <dt-bindings/zmk/mouse.h>
 
 / {
+    behaviors {
+        td0: td0 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <>;
+        };
+    };
+
     conditional_layers {
         compatible = "zmk,conditional-layers";
         adj_layer {
@@ -19,7 +28,7 @@
             display-name = "BASE";
             bindings = <
                 &kp TAB               &kp Q                 &kp W                 &kp E                 &kp R                 &kp T                 &kp Y                 &kp U                 &kp I                 &kp O                 &kp P                 &kp BSPC              
-                &kp LCTRL             &kp A                 &kp S                 &kp D                 &kp F                 &kp G                 &kp H                 &kp J                 &kp K                 &kp L                 &kp SEMI              &kp SQT               
+                &kp LCTRL             &kp A                 &kp S                 &kp D                 &kp F                 &kp G                 &kp H                 &kp J                 &kp K                 &kp L                 &kp LS(FSLH)          &kp MINUS             
                 &kp LSHFT             &kp Z                 &kp X                 &kp C                 &kp V                 &kp B                 &kp N                 &kp M                 &kp COMMA             &kp DOT               &kp FSLH              &kp RSHFT             
                                             &kp LANG2             &mo 1                 &kp SPACE             &kp RET               &mo 2                 &kp LANG1             
             >;
@@ -28,9 +37,9 @@
         nav_layer {
             display-name = "NAV";
             bindings = <
-                &kp TAB               &kp N1                &kp N2                &kp N3                &kp N4                &kp N5                &kp KP_N7             &kp KP_N8             &kp KP_N9             &kp LS(EQUAL)         &kp MINUS             &kp BSPC              
-                &bt BT_CLR            &bt BT_SEL 0          &bt BT_SEL 1          &bt BT_SEL 2          &bt BT_SEL 3          &bt BT_SEL 4          &kp KP_N4             &kp KP_N5             &kp KP_N6             &kp LS(N8)            &kp FSLH              &kp DOT               
-                &kp LSHFT             &studio_unlock        &trans                &trans                &mkp MB1              &mkp MB2              &kp KP_N1             &kp KP_N2             &kp KP_N3             &kp KP_N0             &kp EQUAL             &kp RET               
+                &kp TAB               &kp N1                &kp N2                &kp N3                &kp N4                &kp INT1              &kp N7                &kp N8                &kp N9                &kp LS(SEMI)          &kp MINUS             &kp BSPC              
+                &bt BT_CLR            &bt BT_SEL 0          &bt BT_SEL 1          &bt BT_SEL 2          &bt BT_SEL 3          &bt BT_SEL 4          &kp N4                &kp N5                &kp N6                &kp KP_MULTIPLY       &kp FSLH              &kp DOT               
+                &kp LSHFT             &studio_unlock        &kp N0                &trans                &mkp MB1              &mkp MB2              &kp N1                &kp N2                &kp N3                &kp N0                &kp LS(MINUS)         &kp RET               
                                             &kp LGUI              &trans                &kp SPACE             &kp RET               &trans                &kp RALT              
             >;
         };
@@ -38,9 +47,9 @@
         sym_layer {
             display-name = "SYM";
             bindings = <
-                &kp TAB               &kp LS(N1)            &kp LS(N2)            &kp LS(N3)            &kp LS(N4)            &kp LS(N5)            &kp LS(N6)            &kp LS(N7)            &kp LS(N8)            &kp LS(N9)            &kp LS(N0)            &kp LS(FSLH)          
-                &kp LCTRL             &kp PSCRN             &kp LC(C)             &kp LC(V)             &trans                &trans                &kp MINUS             &kp EQUAL             &kp UP                &kp LBKT              &kp RBKT              &kp BSLH              
-                &kp LSHFT             &kp N0                &kp N1                &trans                &trans                &trans                &kp LS(MINUS)         &kp LEFT              &kp DOWN              &kp RIGHT             &kp LS(LBKT)          &kp LS(RBKT)          
+                &kp TAB               &kp LS(N0)            &kp LS(N2)            &kp LS(N3)            &kp LS(N4)            &kp LS(N5)            &kp LS(N6)            &kp LS(N7)            &kp LS(N8)            &kp LS(N9)            &kp LS(N1)            &kp LBKT              
+                &kp LCTRL             &kp PSCRN             &kp LC(C)             &kp LC(V)             &trans                &trans                &kp MINUS             &kp LS(N5)            &kp UP                &kp LS(MINUS)         &kp RBKT              &kp BSLH              
+                &kp LSHFT             &trans                &kp N1                &trans                &trans                &trans                &kp LS(MINUS)         &kp LEFT              &kp DOWN              &kp RIGHT             &kp LS(LBKT)          &kp LS(RBKT)          
                                             &kp LGUI              &trans                &kp SPACE             &kp RET               &trans                &kp RALT              
             >;
         };
