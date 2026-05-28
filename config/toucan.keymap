@@ -38,8 +38,8 @@
         sym_layer {
             display-name = "SYM";
             bindings = <
-                &kp TAB               &kp LS(N0)            &kp LS(N2)            &kp LS(N3)            &kp LS(N4)            &kp LS(N5)            &kp LS(N6)            &kp LS(N7)            &kp LS(N8)            &kp LS(N9)            &kp LS(N1)            &kp LBKT              
-                &kp LCTRL             &kp PSCRN             &kp LC(C)             &kp LC(V)             &trans                &trans                &kp MINUS             &kp LS(N5)            &kp UP                &kp LS(MINUS)         &kp RBKT              &kp BSLH              
+                &kp TAB               &kp LS(N0)            &kp LS(N2)            &kp LS(N3)            &kp LS(N4)            &kp LS(N5)            &kp LS(N5)            &kp LS(N7)            &kp LS(N8)            &kp LS(N9)            &kp LS(N1)            &kp LBKT              
+                &kp LCTRL             &kp PSCRN             &kp LC(C)             &kp LC(V)             &trans                &trans                &kp MINUS             &kp LS(N6)            &kp UP                &kp LS(MINUS)         &kp RBKT              &kp BSLH              
                 &kp LSHFT             &trans                &kp N1                &trans                &trans                &trans                &kp LS(MINUS)         &kp LEFT              &kp DOWN              &kp RIGHT             &kp LS(LBKT)          &kp LS(RBKT)          
                                             &kp LGUI              &trans                &kp SPACE             &kp RET               &trans                &kp RALT              
             >;
