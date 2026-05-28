@@ -4,15 +4,6 @@
 #include <dt-bindings/zmk/mouse.h>
 
 / {
-    behaviors {
-        td0: td0 {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <>;
-        };
-    };
-
     conditional_layers {
         compatible = "zmk,conditional-layers";
         adj_layer {
