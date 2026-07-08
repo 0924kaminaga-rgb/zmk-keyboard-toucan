@@ -22,14 +22,11 @@ static const struct device *tele_dev;
 
 static void tele_send(const char *buf, int len)
 {
-    if (len <= 0 || !tele_dev) {
+    if (len <= 0 || !tele_dev || !device_is_ready(tele_dev)) {
         return;
     }
-    /* Only write when a PC has the port open (host asserts DTR). */
-    uint32_t dtr = 0;
-    if (uart_line_ctrl_get(tele_dev, UART_LINE_CTRL_DTR, &dtr) < 0 || !dtr) {
-        return;
-    }
+    /* uart_poll_out returns immediately when no USB host is consuming data,
+     * so it is safe to call unconditionally without DTR check. */
     for (int i = 0; i < len; i++) {
         uart_poll_out(tele_dev, buf[i]);
     }
