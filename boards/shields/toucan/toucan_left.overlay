@@ -46,3 +46,12 @@ nice_view_spi: &spi0 {
 &glidepoint_listener {
     status = "okay";
 };
+
+/* Second CDC-ACM port for PC overlay telemetry.
+ * Studio RPC uses snippet_studio_rpc_usb_uart (added by studio-rpc-usb-uart snippet).
+ * This node creates an independent sibling interface — Studio RPC is unchanged. */
+&zephyr_udc0 {
+    toucan_telemetry_uart: toucan_telemetry_uart {
+        compatible = "zephyr,cdc-acm-uart";
+    };
+};
